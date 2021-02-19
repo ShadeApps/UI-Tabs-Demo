@@ -1,0 +1,17 @@
+//
+//  Localizable.strings
+//  UITabsDemo
+//
+//  Created by Sergey Grischyov on 19.02.2021.
+//
+
+// Tabs
+"upcoming" = "UPCOMING";
+"archived" = "ARCHIVED";
+"options" = "OPTIONS";
+
+// Common
+"ok" = "ok";
+// Error
+"error.title" = "error";
+"error.generalLocalizedMessage" = "Oops, something went wrong :(";
