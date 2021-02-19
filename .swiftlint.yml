@@ -1,0 +1,67 @@
+identifier_name:
+  min_length:
+    warning: 0
+    error: 0
+file_length:
+  warning: 500
+  error: 950
+disabled_rules:
+  - type_body_length
+  - line_length
+  - identifier_name
+  - todo
+  - valid_ibinspectable
+opt_in_rules:
+  - toggle_bool
+  - sorted_imports
+  - last_where 
+  - contains_over_first_not_nil
+  - closure_spacing
+  - empty_count
+  - empty_string
+  - explicit_init
+  - fatal_error_message
+  - first_where
+  - let_var_whitespace
+  - modifier_order
+  - operator_usage_whitespace
+  - overridden_super_call
+  - prohibited_super_call
+  - override_in_extension
+  - redundant_nil_coalescing
+  - redundant_type_annotation
+  - sorted_first_last
+  - switch_case_on_newline
+  - unavailable_function
+  - unneeded_parentheses_in_closure_argument
+  - untyped_error_in_catch
+  - vertical_parameter_alignment_on_call
+  - yoda_condition
+included:
+  - UITabsDemo
+excluded:
+  - UITabsDemo/Resources/R.generated.swift
+  - Pods
+  - ./UITabsDemo/Pods
+  - ${PODS_ROOT}
+
+unneeded_break_in_switch:
+    severity: error
+
+unneeded_parentheses_in_closure_argument:
+    severity: error
+
+unused_closure_parameter:
+    severity: error
+
+unused_optional_binding:
+    severity: error
+
+void_return:
+    severity: error
+
+let_var_whitespace:
+    severity: error
+
+
+reporter: "xcode"
