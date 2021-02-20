@@ -12,21 +12,26 @@ import UIKit
 
 final class RootViewController: TabmanViewController {
 
+    @IBOutlet private weak var navigationView: UIView!
+    @IBOutlet private var navigationControls: [UIView]!
+    @IBOutlet private weak var topNavigationConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var navigationHeightConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var tabView: UIView!
+
     enum Tab {
         case upcoming, archived, options
     }
 
-    let upcomingVC = R.storyboard.main.upcomingVC()!
-    let archivedVC = R.storyboard.main.archivedVC()!
-    let optionsVC = R.storyboard.main.optionsVC()!
+    private let upcomingVC = R.storyboard.main.upcomingVC()!
+    private let archivedVC = R.storyboard.main.archivedVC()!
+    private let optionsVC = R.storyboard.main.optionsVC()!
 
+    private var initialTab = Tab.upcoming
     private let bar = TMBarView<TMHorizontalBarLayout, TopBarButton, BarIndicatorView>()
 
     private var viewControllers: [UIViewController] {
         [upcomingVC, archivedVC, optionsVC]
     }
-
-    private var initialTab = Tab.upcoming
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -41,21 +46,41 @@ extension RootViewController {
         setupViews()
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    private func setupViews() {
+        prepareTabs()
 
-        bar.layout.interButtonSpacing = 0
+        navigationHeightConstraint.constant = UIViewController.topNotchHeight + Constants.navigationHeight
+
+        view.backgroundColor = Color.backgroundColor()!
         bar.layout.contentMode = .fit
-        addBar(bar, dataSource: self, at: .top)
+        bar.layout.interButtonSpacing = 0
+        bar.backgroundView.style = .clear
 
         dataSource = self
         delegate = self
+
+        addBar(bar, dataSource: self, at: .custom(view: tabView, layout: nil))
     }
 
-    private func setupViews() {
-        view.backgroundColor = Color.backgroundColor()!
-        bar.layout.contentMode = .fit
-        bar.backgroundView.style = .clear
+    private func prepareTabs() {
+        // Account for all devices
+        if UIViewController.hasTopNotch {
+            upcomingVC.topInset = UIViewController.topNotchHeight + Constants.navigationHeight
+        } else {
+            upcomingVC.topInset = Constants.navigationHeight + Constants.tabHeight
+        }
+
+        upcomingVC.didScrollCallback = { [weak self] value in
+            guard let self = self else { return }
+
+            let height = value > 0
+            let maxOffset = -Constants.navigationHeight
+            let newValue = -value < maxOffset ? maxOffset : -value
+            let threshold = value > Constants.navigationHeight / 2
+
+            self.topNavigationConstraint.constant = height ? newValue : 0
+            self.navigationControls.forEach { $0.alpha = threshold ? 0 : 1 }
+        }
     }
 }
 
@@ -95,4 +120,13 @@ extension RootViewController: TMBarDataSource {
             fatalError("not supported")
         }
     }
+}
+
+private extension RootViewController {
+
+    enum Constants {
+        static let navigationHeight = CGFloat(44)
+        static let tabHeight = CGFloat(40)
+    }
+
 }

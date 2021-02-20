@@ -7,7 +7,10 @@
 
 import UIKit
 
-final class OptionsVC: UIViewController {
+final class OptionsVC: UIViewController, TabbedController {
+
+    var topInset = CGFloat(0)
+    var didScrollCallback: ((CGFloat) -> Void)?
 
     override func viewDidLoad() {
         super.viewDidLoad()

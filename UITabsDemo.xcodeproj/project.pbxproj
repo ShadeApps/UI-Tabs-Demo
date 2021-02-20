@@ -14,6 +14,10 @@
 		40730D4025E7008500E945E1 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40730D3F25E7008500E945E1 /* UIViewController+Ext.swift */; };
 		40730D4525E700B100E945E1 /* UIImageView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40730D4425E700B100E945E1 /* UIImageView+Ext.swift */; };
 		40730D4A25E7011000E945E1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 40730D4925E7011000E945E1 /* Localizable.strings */; };
+		40D8F5D425EA4F1B006F0757 /* SeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D8F5D325EA4F1B006F0757 /* SeparatorView.swift */; };
+		40D8F5D925EA4F49006F0757 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D8F5D825EA4F49006F0757 /* UIView+Ext.swift */; };
+		40D8F5DE25EA4F71006F0757 /* Optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D8F5DD25EA4F71006F0757 /* Optional.swift */; };
+		40D8F5EA25EA553E006F0757 /* TabbedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D8F5E925EA553E006F0757 /* TabbedController.swift */; };
 		40E6DD1925DFC67300F5C0B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E6DD1825DFC67300F5C0B6 /* AppDelegate.swift */; };
 		40E6DD1D25DFC67300F5C0B6 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E6DD1C25DFC67300F5C0B6 /* RootViewController.swift */; };
 		40E6DD2025DFC67300F5C0B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40E6DD1E25DFC67300F5C0B6 /* Main.storyboard */; };
@@ -65,6 +69,10 @@
 		40730D3F25E7008500E945E1 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		40730D4425E700B100E945E1 /* UIImageView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Ext.swift"; sourceTree = "<group>"; };
 		40730D4925E7011000E945E1 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		40D8F5D325EA4F1B006F0757 /* SeparatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorView.swift; sourceTree = "<group>"; };
+		40D8F5D825EA4F49006F0757 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
+		40D8F5DD25EA4F71006F0757 /* Optional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Optional.swift; sourceTree = "<group>"; };
+		40D8F5E925EA553E006F0757 /* TabbedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbedController.swift; sourceTree = "<group>"; };
 		40E6DD1525DFC67300F5C0B6 /* UITabsDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UITabsDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40E6DD1825DFC67300F5C0B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		40E6DD1C25DFC67300F5C0B6 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -148,6 +156,7 @@
 				AB63AA4925E4EBD4009AB761 /* Cells */,
 				40730D2325E6F64A00E945E1 /* TopBarButton.swift */,
 				40730D2825E6F67D00E945E1 /* BarIndicatorView.swift */,
+				40D8F5D325EA4F1B006F0757 /* SeparatorView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -156,10 +165,20 @@
 			isa = PBXGroup;
 			children = (
 				40730D3725E7006000E945E1 /* Typealiases.swift */,
+				40D8F5DD25EA4F71006F0757 /* Optional.swift */,
 				40730D3F25E7008500E945E1 /* UIViewController+Ext.swift */,
+				40D8F5D825EA4F49006F0757 /* UIView+Ext.swift */,
 				40730D4425E700B100E945E1 /* UIImageView+Ext.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		40D8F5E525EA5313006F0757 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				40D8F5E925EA553E006F0757 /* TabbedController.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		40E6DD0C25DFC67300F5C0B6 = {
@@ -189,6 +208,7 @@
 			children = (
 				40730D1E25E6F52500E945E1 /* Model */,
 				40730D1F25E6F5C100E945E1 /* View */,
+				40D8F5E525EA5313006F0757 /* Protocols */,
 				ABCB193725DFF1310096A708 /* ViewControllers */,
 				40730D3625E7005100E945E1 /* Extensions */,
 				40E6DD8C25DFCAD400F5C0B6 /* Resources */,
@@ -502,18 +522,22 @@
 				40730D3825E7006000E945E1 /* Typealiases.swift in Sources */,
 				40E6DD1D25DFC67300F5C0B6 /* RootViewController.swift in Sources */,
 				40730D4025E7008500E945E1 /* UIViewController+Ext.swift in Sources */,
+				40D8F5D425EA4F1B006F0757 /* SeparatorView.swift in Sources */,
 				AB97EA5F25E50F9800F4C323 /* WrongStubsCell.swift in Sources */,
 				AB63AA6525E50B0D009AB761 /* EmptyStubsCell.swift in Sources */,
 				40730D2425E6F64A00E945E1 /* TopBarButton.swift in Sources */,
+				40D8F5EA25EA553E006F0757 /* TabbedController.swift in Sources */,
 				AB63AA4F25E4ECB8009AB761 /* MainCell.swift in Sources */,
 				40E6DD1925DFC67300F5C0B6 /* AppDelegate.swift in Sources */,
 				AB97EA6625E518A100F4C323 /* MonthHeaderCell.swift in Sources */,
 				40E6DD9425DFCB4000F5C0B6 /* R.generated.swift in Sources */,
 				AB63AA5D25E50607009AB761 /* SkeletonCell.swift in Sources */,
+				40D8F5D925EA4F49006F0757 /* UIView+Ext.swift in Sources */,
 				ABCB193C25E017880096A708 /* UpcomingVC.swift in Sources */,
 				40730D4525E700B100E945E1 /* UIImageView+Ext.swift in Sources */,
 				ABCB194425E017FF0096A708 /* ArchivedVC.swift in Sources */,
 				40730D2925E6F67D00E945E1 /* BarIndicatorView.swift in Sources */,
+				40D8F5DE25EA4F71006F0757 /* Optional.swift in Sources */,
 				AB97EA5825E50D6300F4C323 /* ConnectionStubsCell.swift in Sources */,
 				ABCB193325DFF1120096A708 /* OptionsVC.swift in Sources */,
 				AB63AA5625E4FD2E009AB761 /* SeparatorCell.swift in Sources */,

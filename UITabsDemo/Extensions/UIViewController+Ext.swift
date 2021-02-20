@@ -17,3 +17,19 @@ extension UIViewController {
         present(alert, animated: true, completion: nil)
     }
 }
+
+extension UIViewController {
+    static var hasTopNotch: Bool {
+        if let delegate = UIApplication.shared.delegate, let window = delegate.window {
+            return (window?.safeAreaInsets.top ?? 0) > CGFloat(20)
+        }
+        return false
+    }
+
+    static var topNotchHeight: CGFloat {
+        if let delegate = UIApplication.shared.delegate, let window = delegate.window {
+            return window?.safeAreaInsets.top ?? 0
+        }
+        return 0
+    }
+}

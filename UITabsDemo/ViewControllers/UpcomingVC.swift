@@ -7,9 +7,12 @@
 
 import UIKit
 
-final class UpcomingVC: UIViewController {
+final class UpcomingVC: UIViewController, TabbedController {
 
     @IBOutlet weak var tableView: UITableView!
+
+    var topInset = CGFloat(0)
+    var didScrollCallback: ((CGFloat) -> Void)?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +26,8 @@ extension UpcomingVC: UITableViewDelegate, UITableViewDataSource {
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 20, right: 0)
+        tableView.contentInsetAdjustmentBehavior = .never
+        tableView.contentInset = UIEdgeInsets(top: topInset, left: 0, bottom: 20, right: 0)
         tableView.register(R.nib.mainCell)
         tableView.register(R.nib.separatorCell)
         tableView.register(R.nib.skeletonCell)
@@ -59,6 +63,12 @@ extension UpcomingVC: UITableViewDelegate, UITableViewDataSource {
         default:
             return UITableViewCell()
         }
+    }
+}
+
+extension UpcomingVC {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        didScrollCallback?(scrollView.contentOffset.y + topInset)
     }
 }
 

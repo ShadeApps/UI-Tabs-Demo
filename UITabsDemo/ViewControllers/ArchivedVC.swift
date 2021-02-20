@@ -7,7 +7,10 @@
 
 import UIKit
 
-final class ArchivedVC: UIViewController {
+final class ArchivedVC: UIViewController, TabbedController {
+
+    var topInset = CGFloat(0)
+    var didScrollCallback: ((CGFloat) -> Void)?
 
     override func viewDidLoad() {
         super.viewDidLoad()
