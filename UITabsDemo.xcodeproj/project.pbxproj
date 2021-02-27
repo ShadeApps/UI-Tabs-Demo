@@ -17,6 +17,9 @@
 		40C20B6425EABE5D006DBD51 /* HapticHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C20B6325EABE5D006DBD51 /* HapticHelper.swift */; };
 		40C20B6925EAC997006DBD51 /* Collection+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C20B6825EAC997006DBD51 /* Collection+Ext.swift */; };
 		40C20B6E25EAD55B006DBD51 /* GCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C20B6D25EAD55B006DBD51 /* GCD.swift */; };
+		40C20B7325EAD7B7006DBD51 /* NetworkClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C20B7225EAD7B7006DBD51 /* NetworkClientProtocol.swift */; };
+		40C20B7825EAD7E9006DBD51 /* LoadDataServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C20B7725EAD7E9006DBD51 /* LoadDataServiceProtocol.swift */; };
+		40C20B8025EAD80B006DBD51 /* DateFormatterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C20B7F25EAD80B006DBD51 /* DateFormatterProtocol.swift */; };
 		40D8F5D425EA4F1B006F0757 /* SeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D8F5D325EA4F1B006F0757 /* SeparatorView.swift */; };
 		40D8F5D925EA4F49006F0757 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D8F5D825EA4F49006F0757 /* UIView+Ext.swift */; };
 		40D8F5DE25EA4F71006F0757 /* Optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D8F5DD25EA4F71006F0757 /* Optional.swift */; };
@@ -89,6 +92,9 @@
 		40C20B6325EABE5D006DBD51 /* HapticHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticHelper.swift; sourceTree = "<group>"; };
 		40C20B6825EAC997006DBD51 /* Collection+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Ext.swift"; sourceTree = "<group>"; };
 		40C20B6D25EAD55B006DBD51 /* GCD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCD.swift; sourceTree = "<group>"; };
+		40C20B7225EAD7B7006DBD51 /* NetworkClientProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClientProtocol.swift; sourceTree = "<group>"; };
+		40C20B7725EAD7E9006DBD51 /* LoadDataServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadDataServiceProtocol.swift; sourceTree = "<group>"; };
+		40C20B7F25EAD80B006DBD51 /* DateFormatterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterProtocol.swift; sourceTree = "<group>"; };
 		40D8F5D325EA4F1B006F0757 /* SeparatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorView.swift; sourceTree = "<group>"; };
 		40D8F5D825EA4F49006F0757 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		40D8F5DD25EA4F71006F0757 /* Optional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Optional.swift; sourceTree = "<group>"; };
@@ -195,6 +201,7 @@
 		40730D3625E7005100E945E1 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				40C20B6D25EAD55B006DBD51 /* GCD.swift */,
 				40D8F5DD25EA4F71006F0757 /* Optional.swift */,
 				40730D3725E7006000E945E1 /* Typealiases.swift */,
 				40D8F63425EA8DA3006F0757 /* TMBarView+Ext.swift */,
@@ -202,7 +209,6 @@
 				40D8F5D825EA4F49006F0757 /* UIView+Ext.swift */,
 				40C20B6825EAC997006DBD51 /* Collection+Ext.swift */,
 				40730D4425E700B100E945E1 /* UIImageView+Ext.swift */,
-				40C20B6D25EAD55B006DBD51 /* GCD.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -219,6 +225,9 @@
 			isa = PBXGroup;
 			children = (
 				40D8F5E925EA553E006F0757 /* TabbedController.swift */,
+				40C20B7225EAD7B7006DBD51 /* NetworkClientProtocol.swift */,
+				40C20B7725EAD7E9006DBD51 /* LoadDataServiceProtocol.swift */,
+				40C20B7F25EAD80B006DBD51 /* DateFormatterProtocol.swift */,
 				40D8F64B25EA9D30006F0757 /* JSONRepresentable.swift */,
 			);
 			path = Protocols;
@@ -689,6 +698,7 @@
 				40D8F5EA25EA553E006F0757 /* TabbedController.swift in Sources */,
 				AB63AA4F25E4ECB8009AB761 /* MainCell.swift in Sources */,
 				40D8F67E25EAA981006F0757 /* Event.swift in Sources */,
+				40C20B7325EAD7B7006DBD51 /* NetworkClientProtocol.swift in Sources */,
 				40E6DD1925DFC67300F5C0B6 /* AppDelegate.swift in Sources */,
 				AB97EA6625E518A100F4C323 /* MonthHeaderCell.swift in Sources */,
 				40E6DD9425DFCB4000F5C0B6 /* R.generated.swift in Sources */,
@@ -697,9 +707,11 @@
 				ABCB193C25E017880096A708 /* UpcomingVC.swift in Sources */,
 				40D8F68625EAB434006F0757 /* EventContainer.swift in Sources */,
 				40730D4525E700B100E945E1 /* UIImageView+Ext.swift in Sources */,
+				40C20B8025EAD80B006DBD51 /* DateFormatterProtocol.swift in Sources */,
 				40D8F64C25EA9D30006F0757 /* JSONRepresentable.swift in Sources */,
 				40D8F63525EA8DA3006F0757 /* TMBarView+Ext.swift in Sources */,
 				ABCB194425E017FF0096A708 /* ArchivedVC.swift in Sources */,
+				40C20B7825EAD7E9006DBD51 /* LoadDataServiceProtocol.swift in Sources */,
 				40730D2925E6F67D00E945E1 /* BarIndicatorView.swift in Sources */,
 				40D8F5DE25EA4F71006F0757 /* Optional.swift in Sources */,
 				40D8F5FB25EA85EA006F0757 /* LoadDataService.swift in Sources */,
@@ -887,14 +899,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Z9KPGC6299;
+				DEVELOPMENT_TEAM = 26X9MMPTBH;
 				INFOPLIST_FILE = UITabsDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.sergey.UITabsDemo2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sergey.UITabsDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -908,14 +920,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Z9KPGC6299;
+				DEVELOPMENT_TEAM = 26X9MMPTBH;
 				INFOPLIST_FILE = UITabsDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.sergey.UITabsDemo2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sergey.UITabsDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

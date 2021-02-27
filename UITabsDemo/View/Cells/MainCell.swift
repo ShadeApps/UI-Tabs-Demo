@@ -18,6 +18,10 @@ final class MainCell: UITableViewCell {
     @IBOutlet weak var placeImage: UIImageView!
 
     func layoutWith(event: Event) {
-
+        statusLabel.text = event.cost.rawValue.uppercased()
+        dateLabel.text = event.startDay
+        timeLabel.text = event.timeRange
+        districtLabel.text = event.venue
+        placeLabel.text = event.location
     }
 }

@@ -10,10 +10,6 @@ import UIKit
 
 typealias LoadResult = Result<RootEntity, NetworkError>
 
-protocol LoadDataServiceProtocol {
-    func request(path: String, completion: @escaping (LoadResult) -> Void)
-}
-
 final class LoadDataService: LoadDataServiceProtocol {
     private let networkClient: NetworkClient
 

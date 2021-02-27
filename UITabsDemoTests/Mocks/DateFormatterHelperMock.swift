@@ -31,4 +31,14 @@ final class DateFormatterHelperMock: DateFormatterProtocol {
         formatterIsInvokedCounter += 1
         return false
     }
+    
+    func dateFromString(_ string: String) -> Date {
+        formatterIsInvokedCounter += 1
+        return Date()
+    }
+    
+    func displayDay(fromDate: Date) -> String {
+        formatterIsInvokedCounter += 1
+        return ""
+    }
 }

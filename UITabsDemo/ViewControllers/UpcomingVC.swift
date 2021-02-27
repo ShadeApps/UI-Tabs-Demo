@@ -35,6 +35,7 @@ extension UpcomingVC: UITableViewDelegate, UITableViewDataSource {
         tableView.dataSource = self
         tableView.contentInsetAdjustmentBehavior = .never
         tableView.contentInset = UIEdgeInsets(top: topInset, left: 0, bottom: 20, right: 0)
+        tableView.rowHeight = UITableView.automaticDimension
         tableView.register(R.nib.mainCell)
         tableView.register(R.nib.separatorCell)
         tableView.register(R.nib.skeletonCell)
@@ -125,6 +126,7 @@ extension UpcomingVC: ListViewModelDelegate {
         tableView.isScrollEnabled = false
         tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
         tableView.reloadData()
+        HapticHelper.vibrate(.error)
     }
 }
 
@@ -138,6 +140,7 @@ extension UpcomingVC {
 // MARK: - Cell Delegate
 extension UpcomingVC: StubsCellDelegate {
     func retryClicked(_ cell: UITableViewCell) {
+        HapticHelper.vibrate(.light)
         viewModel.loadData()
     }
 }

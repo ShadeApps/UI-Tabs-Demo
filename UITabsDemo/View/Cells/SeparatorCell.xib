@@ -11,15 +11,15 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SeparatorCell" rowHeight="60" id="KGk-i7-Jjw" customClass="SeparatorCell" customModule="UITabsDemo" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="527" height="42"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SeparatorCell" rowHeight="58" id="KGk-i7-Jjw" customClass="SeparatorCell" customModule="UITabsDemo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="527" height="40"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="527" height="42"/>
+                <rect key="frame" x="0.0" y="0.0" width="527" height="40"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="65e-rn-6S6" customClass="SeparatorView" customModule="UITabsDemo" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="20.5" width="527" height="1"/>
+                        <rect key="frame" x="0.0" y="19.5" width="527" height="1"/>
                         <color key="backgroundColor" name="MercuryGrayColor"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="cVY-V7-r4J"/>
@@ -27,14 +27,16 @@
                     </view>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="bottom" secondItem="65e-rn-6S6" secondAttribute="bottom" priority="999" constant="20" id="Lhf-k8-UF9"/>
                     <constraint firstItem="65e-rn-6S6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="U8y-qL-5se"/>
                     <constraint firstAttribute="trailing" secondItem="65e-rn-6S6" secondAttribute="trailing" id="fgL-H3-8t5"/>
+                    <constraint firstItem="65e-rn-6S6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" priority="999" constant="19" id="k9w-qR-8jT"/>
                     <constraint firstItem="65e-rn-6S6" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="oxA-Us-Zbs"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" name="BackgroundColor"/>
-            <point key="canvasLocation" x="281.8840579710145" y="91.741071428571431"/>
+            <point key="canvasLocation" x="281.8840579710145" y="91.071428571428569"/>
         </tableViewCell>
     </objects>
     <resources>

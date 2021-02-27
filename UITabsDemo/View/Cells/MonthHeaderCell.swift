@@ -12,6 +12,6 @@ final class MonthHeaderCell: UITableViewCell {
     @IBOutlet weak var monthLabel: UILabel!
 
     func layoutWith(month: String) {
-        monthLabel.text = month
+        monthLabel.text = month.uppercased()
     }
 }

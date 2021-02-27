@@ -14,10 +14,6 @@ enum NetworkError: Error {
     case connection
 }
 
-protocol NetworkClientProtocol {
-    func request<T: Decodable>(path: String, parameters: [String: Any]?, completion: @escaping (Result<T, NetworkError>) -> Void)
-}
-
 final class NetworkClient: NetworkClientProtocol {
     func request<T: Decodable>(path: String, parameters: [String: Any]? = nil, completion: @escaping (Result<T, NetworkError>) -> Void) {
         let urlString = Constants.base + "/" + path

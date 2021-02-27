@@ -46,10 +46,53 @@ final class ListViewModel {
                 guard let self = self else { return }
                 switch result {
                 case .success(let value):
+                    self.items.removeAll()
+
                     let items = value.items
                     print("Items are \(items)")
 
-                    self.internalState = items.isEmpty ? .empty : .success
+                    var events = [Event]()
+
+                    for item in items {
+                        let start = self.dateFormatter.dateFromString(item.startTime)
+                        let end = self.dateFormatter.dateFromString(item.endTime)
+                        let event = Event(cost: item.cost,
+                                          imageUrl: item.imageUrl,
+                                          location: item.location,
+                                          venue: item.venue,
+                                          startTime: start,
+                                          endTime: end,
+                                          startDay: self.dateFormatter.displayDay(fromDate: start),
+                                          timeRange: self.dateFormatter.displayRange(fromDates: (start, end)))
+                        events.append(event)
+                    }
+
+                    events.sort { $0.startTime < $1.startTime }
+                    print("Events are \(events)")
+                    print("Events count is \(events.count)")
+
+                    var newContainer = EventContainer()
+
+                    // Grouping logics
+                    for event in events {
+                        if let lastEvent = newContainer.events.last,
+                           !self.dateFormatter.isInSameMonth(date1: event.startTime, date2: lastEvent.startTime) {
+                                self.addContainer(newContainer)
+                                newContainer.events.removeAll()
+                                self.addEvent(event, to: &newContainer)
+                            } else {
+                            self.addEvent(event, to: &newContainer)
+                        }
+                    }
+
+                    if !newContainer.events.isEmpty {
+                        self.addContainer(newContainer)
+                    }
+
+                    print("Items are \(self.items)")
+                    print("Items count is \(self.items.count)")
+
+                    self.internalState = self.items.isEmpty ? .empty : .success
                     self.delegate?.reloadTableView(self.internalState)
                 case .failure(let error):
                     if error == .connection {
@@ -61,6 +104,16 @@ final class ListViewModel {
                 }
             }
         }
+    }
+
+    private func addEvent(_ event: Event, to newContainer: inout EventContainer) {
+        newContainer.events.append(event)
+        newContainer.startTime = event.startTime
+        newContainer.timeDisplayString = self.dateFormatter.monthTitle(event.startTime)
+    }
+
+    private func addContainer(_ container: EventContainer) {
+        items.append(container)
     }
 
     var numberOfSections: Int {

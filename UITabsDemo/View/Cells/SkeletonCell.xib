@@ -11,15 +11,15 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SkeletonCell" rowHeight="214" id="UbQ-a7-X2m" customClass="SkeletonCell" customModule="UITabsDemo" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="352" height="223"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SkeletonCell" rowHeight="230" id="UbQ-a7-X2m" customClass="SkeletonCell" customModule="UITabsDemo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="352" height="230"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UbQ-a7-X2m" id="7GG-NU-DRj">
-                <rect key="frame" x="0.0" y="0.0" width="352" height="223"/>
+                <rect key="frame" x="0.0" y="0.0" width="352" height="230"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="86m-KZ-YTw">
-                        <rect key="frame" x="12" y="10" width="328" height="203"/>
+                        <rect key="frame" x="12" y="10" width="328" height="210"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="large_camera_icon" translatesAutoresizingMaskIntoConstraints="NO" id="y2v-u9-gPV">
                                 <rect key="frame" x="24" y="24" width="48" height="48"/>
@@ -29,7 +29,7 @@
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eLP-UA-2Mf">
-                                <rect key="frame" x="16" y="147" width="240" height="16"/>
+                                <rect key="frame" x="16" y="154" width="240" height="16"/>
                                 <color key="backgroundColor" name="MercuryGrayColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="17z-rp-x0u"/>
@@ -42,7 +42,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uAu-eB-BpD">
-                                <rect key="frame" x="16" y="171" width="160" height="16"/>
+                                <rect key="frame" x="16" y="178" width="160" height="16"/>
                                 <color key="backgroundColor" name="MercuryGrayColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="16" id="04W-tO-432"/>
@@ -57,10 +57,10 @@
                         </subviews>
                         <color key="backgroundColor" name="LightGrayColor"/>
                         <constraints>
+                            <constraint firstAttribute="height" priority="999" constant="210" id="0nJ-p2-YW5"/>
                             <constraint firstAttribute="bottom" secondItem="uAu-eB-BpD" secondAttribute="bottom" constant="16" id="3Hi-h9-CdH"/>
                             <constraint firstItem="uAu-eB-BpD" firstAttribute="top" secondItem="eLP-UA-2Mf" secondAttribute="bottom" constant="8" id="6rj-XR-jD5"/>
                             <constraint firstItem="y2v-u9-gPV" firstAttribute="leading" secondItem="86m-KZ-YTw" secondAttribute="leading" constant="24" id="AbI-f7-lW9"/>
-                            <constraint firstAttribute="height" constant="203" id="NPZ-AK-0Tv"/>
                             <constraint firstItem="uAu-eB-BpD" firstAttribute="leading" secondItem="86m-KZ-YTw" secondAttribute="leading" constant="16" id="pIU-1R-9gI"/>
                             <constraint firstItem="eLP-UA-2Mf" firstAttribute="leading" secondItem="86m-KZ-YTw" secondAttribute="leading" constant="16" id="rnn-st-hsk"/>
                             <constraint firstItem="y2v-u9-gPV" firstAttribute="top" secondItem="86m-KZ-YTw" secondAttribute="top" constant="24" id="uMh-lz-LFo"/>
@@ -78,16 +78,16 @@
                 <color key="backgroundColor" name="BackgroundColor"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="86m-KZ-YTw" secondAttribute="trailing" constant="12" id="0oW-bw-Y5d"/>
-                    <constraint firstAttribute="bottom" secondItem="86m-KZ-YTw" secondAttribute="bottom" constant="10" id="CDS-Tu-stg"/>
+                    <constraint firstItem="86m-KZ-YTw" firstAttribute="top" secondItem="7GG-NU-DRj" secondAttribute="top" constant="10" id="EED-vX-o1M"/>
                     <constraint firstItem="86m-KZ-YTw" firstAttribute="leading" secondItem="7GG-NU-DRj" secondAttribute="leading" constant="12" id="Fdu-Md-yrn"/>
-                    <constraint firstItem="86m-KZ-YTw" firstAttribute="top" secondItem="7GG-NU-DRj" secondAttribute="top" constant="10" id="NzP-8r-gmZ"/>
+                    <constraint firstAttribute="bottom" secondItem="86m-KZ-YTw" secondAttribute="bottom" constant="10" id="YEI-Q5-GYN"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="NAu-55-3nv"/>
             <connections>
                 <outlet property="rootView" destination="86m-KZ-YTw" id="Zhv-Gg-dUA"/>
             </connections>
-            <point key="canvasLocation" x="162.31884057971016" y="69.642857142857139"/>
+            <point key="canvasLocation" x="162.31884057971016" y="71.651785714285708"/>
         </tableViewCell>
     </objects>
     <resources>

@@ -29,6 +29,14 @@ final class RootViewController: TabmanViewController {
     private var viewControllers: [UIViewController] {
         [upcomingVC, archivedVC, optionsVC]
     }
+
+    // Overriding not supported in extensions so it has to be here
+    override func pageboyViewController(_ pageboyViewController: PageboyViewController,
+                                        didScrollToPageAt index: TabmanViewController.PageIndex,
+                                        direction: PageboyViewController.NavigationDirection,
+                                        animated: Bool) {
+        HapticHelper.vibrate(.light)
+    }
 }
 
 // MARK: - Lifecycle

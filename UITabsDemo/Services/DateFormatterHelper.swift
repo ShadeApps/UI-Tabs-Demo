@@ -8,28 +8,35 @@
 import Foundation
 import SwiftDate
 
-protocol DateFormatterProtocol {
-    func dateFromString(_ string: String) -> String
-    func displayRange(fromDates: (date1: Date, date2: Date)) -> String
-    func monthTitle(_ date: Date) -> String
-    func isInSameMonth(date1: Date, date2: Date) -> Bool
-}
-
 final class DateFormatterHelper: DateFormatterProtocol {
-    func dateFromString(_ string: String) -> String {
-        ""
+    private let formatter = DateFormatter()
+
+    private let apiFormat = DateFormatter.dateFormat(fromTemplate: "yyyy-MM-dd HH:mm:ss", options: 0, locale: nil)
+    private let rangeFormat = DateFormatter.dateFormat(fromTemplate: "h:mm a", options: 0, locale: Locale(identifier: "en_US_POSIX"))
+    private let monthFormat = DateFormatter.dateFormat(fromTemplate: "MMMM", options: 0, locale: Locale(identifier: "en_US_POSIX"))
+
+    func dateFromString(_ string: String) -> Date {
+        formatter.dateFormat = apiFormat
+        return formatter.date(from: string) ?? Date()
+    }
+
+    func displayDay(fromDate: Date) -> String {
+        formatter.dateFormat = monthFormat
+        return fromDate.ordinalDay + " " + formatter.string(from: fromDate)
     }
 
     func displayRange(fromDates: (date1: Date, date2: Date)) -> String {
-        ""
+        formatter.dateFormat = rangeFormat
+        return formatter.string(from: fromDates.date1) + " — " + formatter.string(from: fromDates.date2)
     }
 
     func monthTitle(_ date: Date) -> String {
-        ""
+        formatter.dateFormat = monthFormat
+        return formatter.string(from: date)
     }
 
     func isInSameMonth(date1: Date, date2: Date) -> Bool {
-        false
+        date1.isInside(date: date2, granularity: .month)
     }
 
 }
