@@ -17,16 +17,7 @@ final class MainCell: UITableViewCell {
     @IBOutlet weak var placeLabel: UILabel!
     @IBOutlet weak var placeImage: UIImageView!
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
+    func layoutWith(event: Event) {
 
-    func layoutWith(imageURL: URL, statusText: String, dateText: String, timeText: String, districtText: String, placeText: String) {
-        placeImage.kf.setImage(with: imageURL)
-        statusLabel.text = statusText
-        dateLabel.text = dateText
-        timeLabel.text = timeText
-        districtLabel.text = districtText
-        placeLabel.text = placeText
     }
 }

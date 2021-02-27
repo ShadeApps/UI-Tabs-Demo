@@ -20,13 +20,25 @@ final class BarIndicatorView: TMBarIndicator {
 
     required init() {
         super.init()
+
         let line = UIView()
         addSubview(line)
+
+        line.height(Constants.lineHeight)
+        line.width(Constants.lineWidth)
         line.bottomToSuperview()
         line.centerInSuperview()
-        line.height(2)
-        line.width(24)
+
         line.backgroundColor = Color.accentColor()!
+    }
+
+}
+
+private extension BarIndicatorView {
+
+    enum Constants {
+        static let lineHeight = CGFloat(2)
+        static let lineWidth = CGFloat(24)
     }
 
 }

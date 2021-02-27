@@ -7,6 +7,7 @@
 
 import Rswift
 
+typealias Storyboard = R.storyboard
 typealias Color = R.color
 typealias Image = R.image
 typealias Localizable = R.string.localizable

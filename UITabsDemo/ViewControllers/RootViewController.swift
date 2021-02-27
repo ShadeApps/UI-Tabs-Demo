@@ -7,34 +7,27 @@
 
 import Pageboy
 import Tabman
-import TinyConstraints
 import UIKit
 
 final class RootViewController: TabmanViewController {
+
+    private enum Tab {
+        case upcoming, archived, options
+    }
 
     @IBOutlet private weak var navigationView: UIView!
     @IBOutlet private var navigationControls: [UIView]!
     @IBOutlet private weak var topNavigationConstraint: NSLayoutConstraint!
     @IBOutlet private weak var navigationHeightConstraint: NSLayoutConstraint!
     @IBOutlet private weak var tabView: UIView!
+    private let topBar = DefaultBar()
 
-    enum Tab {
-        case upcoming, archived, options
-    }
-
-    private let upcomingVC = R.storyboard.main.upcomingVC()!
-    private let archivedVC = R.storyboard.main.archivedVC()!
-    private let optionsVC = R.storyboard.main.optionsVC()!
-
-    private var initialTab = Tab.upcoming
-    private let bar = TMBarView<TMHorizontalBarLayout, TopBarButton, BarIndicatorView>()
+    private let upcomingVC = Storyboard.main.upcomingVC()!
+    private let archivedVC = Storyboard.main.archivedVC()!
+    private let optionsVC = Storyboard.main.optionsVC()!
 
     private var viewControllers: [UIViewController] {
         [upcomingVC, archivedVC, optionsVC]
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
     }
 }
 
@@ -49,27 +42,20 @@ extension RootViewController {
     private func setupViews() {
         prepareTabs()
 
+        topBar.setUp()
+        addBar(topBar, dataSource: self, at: .custom(view: tabView, layout: nil))
         navigationHeightConstraint.constant = UIViewController.topNotchHeight + Constants.navigationHeight
-
-        view.backgroundColor = Color.backgroundColor()!
-        bar.layout.contentMode = .fit
-        bar.layout.interButtonSpacing = 0
-        bar.backgroundView.style = .clear
-
-        dataSource = self
-        delegate = self
-
-        addBar(bar, dataSource: self, at: .custom(view: tabView, layout: nil))
     }
 
     private func prepareTabs() {
         // Account for all devices
-        if UIViewController.hasTopNotch {
-            upcomingVC.topInset = UIViewController.topNotchHeight + Constants.navigationHeight
-        } else {
-            upcomingVC.topInset = Constants.navigationHeight + Constants.tabHeight
+        var inset = UIViewController.topNotchHeight + Constants.navigationHeight
+
+        if !UIViewController.hasTopNotch {
+            inset = Constants.navigationHeight + Constants.tabHeight
         }
 
+        upcomingVC.topInset = inset
         upcomingVC.didScrollCallback = { [weak self] value in
             guard let self = self else { return }
 
@@ -81,6 +67,9 @@ extension RootViewController {
             self.topNavigationConstraint.constant = height ? newValue : 0
             self.navigationControls.forEach { $0.alpha = threshold ? 0 : 1 }
         }
+
+        // PageboyViewControllerDataSource
+        dataSource = self
     }
 }
 
@@ -95,14 +84,7 @@ extension RootViewController: PageboyViewControllerDataSource {
     }
 
     func defaultPage(for pageboyViewController: PageboyViewController) -> PageboyViewController.Page? {
-        switch initialTab {
-        case .upcoming:
-            return .first
-        case .archived:
-            return .next
-        case .options:
-            return .last
-        }
+        .next
     }
 }
 

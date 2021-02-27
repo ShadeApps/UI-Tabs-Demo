@@ -17,10 +17,20 @@ final class TopBarButton: TMLabelBarButton {
     required init(for item: TMBarItemable, intrinsicSuperview: UIView?) {
         super.init(for: item, intrinsicSuperview: intrinsicSuperview)
         backgroundColor = .clear
+
         tintColor = Color.grayColor()!
         selectedTintColor = Color.accentColor()!
-        font = .systemFont(ofSize: 13, weight: .medium)
-        selectedFont = .systemFont(ofSize: 13, weight: .medium)
+
+        font = Constants.titleFont
+        selectedFont = Constants.titleFont
+    }
+
+}
+
+private extension TopBarButton {
+
+    enum Constants {
+        static let titleFont: UIFont = .systemFont(ofSize: 13, weight: .medium)
     }
 
 }

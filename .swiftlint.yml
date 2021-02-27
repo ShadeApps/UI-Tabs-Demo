@@ -22,7 +22,6 @@ opt_in_rules:
   - explicit_init
   - fatal_error_message
   - first_where
-  - let_var_whitespace
   - modifier_order
   - operator_usage_whitespace
   - overridden_super_call
@@ -58,9 +57,6 @@ unused_optional_binding:
     severity: error
 
 void_return:
-    severity: error
-
-let_var_whitespace:
     severity: error
 
 

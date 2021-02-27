@@ -9,11 +9,8 @@ import UIKit
 
 final class OptionsVC: UIViewController, TabbedController {
 
+    // Implement when it becomes necessary :)
     var topInset = CGFloat(0)
     var didScrollCallback: ((CGFloat) -> Void)?
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = Color.backgroundColor()!
-    }
 }

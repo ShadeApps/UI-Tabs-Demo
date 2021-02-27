@@ -66,7 +66,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="BackgroundColor"/>
                         <constraints>
                             <constraint firstItem="FhJ-Cp-UhD" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="2dk-ou-C1z"/>
                             <constraint firstItem="lZt-as-ZcJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="NNg-O6-9ne"/>
@@ -118,7 +118,7 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="UIp-a7-Iji"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="BackgroundColor"/>
                         <constraints>
                             <constraint firstItem="jJQ-Jj-m98" firstAttribute="leading" secondItem="SVd-9C-ro5" secondAttribute="leading" constant="40" id="5lv-tq-Lem"/>
                             <constraint firstItem="eva-38-9Hh" firstAttribute="centerX" secondItem="SVd-9C-ro5" secondAttribute="centerX" id="87x-1g-3Er"/>
@@ -150,7 +150,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7FJ-cD-5gl"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="BackgroundColor"/>
                         <constraints>
                             <constraint firstItem="dlM-tX-QsG" firstAttribute="leading" secondItem="7FJ-cD-5gl" secondAttribute="leading" id="25z-FO-YKP"/>
                             <constraint firstItem="7FJ-cD-5gl" firstAttribute="trailing" secondItem="dlM-tX-QsG" secondAttribute="trailing" id="ISv-yR-SzC"/>
@@ -197,7 +197,7 @@ If this is incorrect, get in touch with our CORE team.</string>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="G9g-H6-aFF"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="BackgroundColor"/>
                         <constraints>
                             <constraint firstItem="O9x-VP-RbJ" firstAttribute="centerX" secondItem="ebB-sy-itL" secondAttribute="centerX" id="8CJ-SU-a8Q"/>
                             <constraint firstItem="X98-rC-8u3" firstAttribute="leading" secondItem="ebB-sy-itL" secondAttribute="leading" constant="40" id="EF4-Fd-uEi"/>

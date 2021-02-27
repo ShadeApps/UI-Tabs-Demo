@@ -7,12 +7,11 @@ def mainPods
   # ui
   pod 'Tabman', '~> 2.10.0'
   pod 'ShimmerSwift'
-  pod 'NVActivityIndicatorView'
   
   # network
-  pod 'Moya'
-  pod 'SwiftyJSON', '~> 5.0'
+  pod 'Alamofire'
   pod 'Kingfisher'
+  pod 'DefaultCodable'
   
   # helpers
   pod 'TinyConstraints', '~> 4.0.1'
@@ -24,6 +23,10 @@ def mainPods
 end
 
 target 'UITabsDemo' do
+  mainPods
+end
+
+target 'UITabsDemoTests' do
   mainPods
 end
 
