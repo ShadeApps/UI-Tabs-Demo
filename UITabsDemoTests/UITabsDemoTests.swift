@@ -51,7 +51,7 @@ final class UITabsDemoTests: XCTestCase {
         XCTAssert(delegateMock.errorCounter == 0)
         XCTAssert(mockService.requestCounter == 1)
         XCTAssert(mockService.requestPath == Constants.path)
-        XCTAssert(viewModel.sections.count == 2)
+        XCTAssert(viewModel.sections.count == 1)
     }
 
     func testLoadDataItemsTwice() throws {
@@ -70,7 +70,7 @@ final class UITabsDemoTests: XCTestCase {
         XCTAssert(delegateMock.errorCounter == 0)
         XCTAssert(mockService.requestCounter == 2)
         XCTAssert(mockService.requestPath == Constants.path)
-        XCTAssert(viewModel.sections.count == 2)
+        XCTAssert(viewModel.sections.count == 1)
     }
 
     func testLoadDataItemsFail() throws {
@@ -87,6 +87,72 @@ final class UITabsDemoTests: XCTestCase {
         XCTAssert(mockService.requestCounter == 1)
         XCTAssert(mockService.requestPath == Constants.path)
         XCTAssert(viewModel.sections.count == 0)
+    }
+    
+    func testFormatterIsEmptyOnDateFromString() throws {
+        // GIVEN
+        let formatter = dateFormatterMock
+        // WHEN
+        let result = formatter.dateFromString("")
+        // THEN
+        XCTAssert(dateFormatterMock.resultString == "")
+        XCTAssert(dateFormatterMock.formatterIsInvokedCounter == 1)
+        XCTAssert(result.dateComponents.isValidDate)
+    }
+    
+    func testFormatterIsNotEmptyOnDisplayDay() throws {
+        // GIVEN
+        let formatter = dateFormatterMock
+        // WHEN
+        let result = formatter.displayDay(fromDate: Date())
+        // THEN
+        XCTAssert(dateFormatterMock.resultString == "")
+        XCTAssert(dateFormatterMock.formatterIsInvokedCounter == 1)
+        XCTAssert(!result.isEmpty)
+    }
+    
+    func testFormatterIsNotEmptyOnMonth() throws {
+        // GIVEN
+        let formatter = dateFormatterMock
+        // WHEN
+        let result = formatter.monthTitle(Date())
+        // THEN
+        XCTAssert(dateFormatterMock.resultString == "")
+        XCTAssert(dateFormatterMock.formatterIsInvokedCounter == 1)
+        XCTAssert(!result.isEmpty)
+    }
+    
+    func testFormatterSameDatesInSameMonth() throws {
+        // GIVEN
+        let formatter = dateFormatterMock
+        // WHEN
+        let result = formatter.isInSameMonth(date1: Date(), date2: Date())
+        // THEN
+        XCTAssert(dateFormatterMock.resultString == "")
+        XCTAssert(dateFormatterMock.formatterIsInvokedCounter == 1)
+        XCTAssert(result == true)
+    }
+    
+    func testFormatterDifferentDatesInDifferentMonth() throws {
+        // GIVEN
+        let formatter = dateFormatterMock
+        // WHEN
+        let result = formatter.isInSameMonth(date1: Date(), date2: Date().dateByAdding(2, .month).date)
+        // THEN
+        XCTAssert(dateFormatterMock.resultString == "")
+        XCTAssert(dateFormatterMock.formatterIsInvokedCounter == 1)
+        XCTAssert(result == false)
+    }
+    
+    func testFormatterRangeIsNotEmpty() throws {
+        // GIVEN
+        let formatter = dateFormatterMock
+        // WHEN
+        let result = formatter.displayRange(fromDates: (Date(), Date()))
+        // THEN
+        XCTAssert(dateFormatterMock.resultString == "")
+        XCTAssert(dateFormatterMock.formatterIsInvokedCounter == 1)
+        XCTAssert(!result.isEmpty)
     }
 }
 

@@ -12,24 +12,19 @@ final class DateFormatterHelperMock: DateFormatterProtocol {
     var resultString = ""
     var formatterIsInvokedCounter = 0
     
-    func dateFromString(_ string: String) -> String {
-        formatterIsInvokedCounter += 1
-        return ""
-    }
-    
     func displayRange(fromDates: (date1: Date, date2: Date)) -> String {
         formatterIsInvokedCounter += 1
-        return ""
+        return DateFormatterHelper().displayRange(fromDates: fromDates)
     }
     
     func monthTitle(_ date: Date) -> String {
         formatterIsInvokedCounter += 1
-        return ""
+        return DateFormatterHelper().monthTitle(date)
     }
     
     func isInSameMonth(date1: Date, date2: Date) -> Bool {
         formatterIsInvokedCounter += 1
-        return false
+        return DateFormatterHelper().isInSameMonth(date1: date1, date2: date2)
     }
     
     func dateFromString(_ string: String) -> Date {
@@ -39,6 +34,6 @@ final class DateFormatterHelperMock: DateFormatterProtocol {
     
     func displayDay(fromDate: Date) -> String {
         formatterIsInvokedCounter += 1
-        return ""
+        return DateFormatterHelper().displayDay(fromDate: fromDate)
     }
 }
