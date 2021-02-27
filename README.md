@@ -36,6 +36,12 @@ The app is currently able to load data, group it by date and show it in a Table 
 10. Passed all the data to table view cells
 11. Fix UI for smaller devices
 
+# Possible Improvement Areas
+
+1. Add iPad and auto-rotate support 
+2. Add more tests (e.g. for grouping functionality and date formatter)
+3. Add pagination support for loading data in paginated chunks
+
 ## Trivia
 
 Project is built with Storyboards and Autolayout, heavily relying on R.swift library for strngly typed-constants.
