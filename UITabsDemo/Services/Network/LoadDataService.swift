@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-typealias LoadResult = Result<RootEntity, Error>
+typealias LoadResult = Result<RootEntity, NetworkError>
 
 protocol LoadDataServiceProtocol {
     func request(path: String, completion: @escaping (LoadResult) -> Void)

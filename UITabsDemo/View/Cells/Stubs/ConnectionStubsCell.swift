@@ -7,19 +7,15 @@
 
 import UIKit
 
-protocol ConnectionStubsCellDelegate: class {
-    func retryConnectionClicked(_ cell: ConnectionStubsCell)
+protocol StubsCellDelegate: class {
+    func retryClicked(_ cell: UITableViewCell)
 }
 
 final class ConnectionStubsCell: UITableViewCell {
 
-    weak var delegate: ConnectionStubsCellDelegate?
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
+    weak var delegate: StubsCellDelegate?
 
     @IBAction func retryButtonPressed(_ sender: Any) {
-        delegate?.retryConnectionClicked(self)
+        delegate?.retryClicked(self)
     }
 }

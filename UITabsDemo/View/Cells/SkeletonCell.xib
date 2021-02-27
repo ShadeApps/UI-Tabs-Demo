@@ -72,9 +72,6 @@
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
                                 <real key="value" value="0.10000000000000001"/>
                             </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                <color key="value" red="0.92549026010000002" green="0.92549026010000002" blue="0.92549026010000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>

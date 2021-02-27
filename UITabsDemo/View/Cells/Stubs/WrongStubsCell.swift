@@ -7,19 +7,11 @@
 
 import UIKit
 
-protocol WrongStubsCellDelegate: class {
-    func retryRefreshClicked(_ cell: WrongStubsCell)
-}
-
 final class WrongStubsCell: UITableViewCell {
 
-    weak var delegate: WrongStubsCellDelegate?
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
+    weak var delegate: StubsCellDelegate?
 
     @IBAction func retryButtonPressed(_ sender: Any) {
-        delegate?.retryRefreshClicked(self)
+        delegate?.retryClicked(self)
     }
 }

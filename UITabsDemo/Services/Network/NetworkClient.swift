@@ -7,29 +7,39 @@
 
 import Alamofire
 import Foundation
-import UIKit
+
+enum NetworkError: Error {
+    case urlIsIncorrect
+    case somethingWrong
+    case connection
+}
 
 protocol NetworkClientProtocol {
-    func request<T: Decodable>(path: String, parameters: [String: Any]?, completion: @escaping (Result<T, Error>) -> Void)
+    func request<T: Decodable>(path: String, parameters: [String: Any]?, completion: @escaping (Result<T, NetworkError>) -> Void)
 }
 
 final class NetworkClient: NetworkClientProtocol {
-    enum NetworkError: Error {
-        case urlIsIncorrect
-        case connection
-    }
-
-    func request<T: Decodable>(path: String, parameters: [String: Any]? = nil, completion: @escaping (Result<T, Error>) -> Void) {
+    func request<T: Decodable>(path: String, parameters: [String: Any]? = nil, completion: @escaping (Result<T, NetworkError>) -> Void) {
         let urlString = Constants.base + "/" + path
         let request = AF.request(urlString, parameters: parameters, headers: [Constants.authKey: Constants.authValue])
 
         if request.error?.isCreateURLRequestError != nil {
             completion(.failure(NetworkError.urlIsIncorrect))
         }
+
         request.responseDecodable(of: T.self) { response in
-            guard let value = response.value else {
-                completion(.failure(NetworkError.connection))
+            if let error = response.error?.underlyingError {
+                if let err = error as? URLError,
+                   err.code == .notConnectedToInternet {
+                    completion(.failure(NetworkError.connection))
+                } else {
+                    completion(.failure(NetworkError.somethingWrong))
+                }
                 return
+            }
+
+            guard let value = response.value else {
+                return completion(.failure(NetworkError.somethingWrong))
             }
 
             completion(.success(value))

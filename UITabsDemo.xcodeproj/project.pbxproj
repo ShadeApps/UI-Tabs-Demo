@@ -15,6 +15,8 @@
 		40730D4525E700B100E945E1 /* UIImageView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40730D4425E700B100E945E1 /* UIImageView+Ext.swift */; };
 		40730D4A25E7011000E945E1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 40730D4925E7011000E945E1 /* Localizable.strings */; };
 		40C20B6425EABE5D006DBD51 /* HapticHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C20B6325EABE5D006DBD51 /* HapticHelper.swift */; };
+		40C20B6925EAC997006DBD51 /* Collection+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C20B6825EAC997006DBD51 /* Collection+Ext.swift */; };
+		40C20B6E25EAD55B006DBD51 /* GCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C20B6D25EAD55B006DBD51 /* GCD.swift */; };
 		40D8F5D425EA4F1B006F0757 /* SeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D8F5D325EA4F1B006F0757 /* SeparatorView.swift */; };
 		40D8F5D925EA4F49006F0757 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D8F5D825EA4F49006F0757 /* UIView+Ext.swift */; };
 		40D8F5DE25EA4F71006F0757 /* Optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D8F5DD25EA4F71006F0757 /* Optional.swift */; };
@@ -85,6 +87,8 @@
 		40730D4425E700B100E945E1 /* UIImageView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Ext.swift"; sourceTree = "<group>"; };
 		40730D4925E7011000E945E1 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		40C20B6325EABE5D006DBD51 /* HapticHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticHelper.swift; sourceTree = "<group>"; };
+		40C20B6825EAC997006DBD51 /* Collection+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Ext.swift"; sourceTree = "<group>"; };
+		40C20B6D25EAD55B006DBD51 /* GCD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCD.swift; sourceTree = "<group>"; };
 		40D8F5D325EA4F1B006F0757 /* SeparatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorView.swift; sourceTree = "<group>"; };
 		40D8F5D825EA4F49006F0757 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		40D8F5DD25EA4F71006F0757 /* Optional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Optional.swift; sourceTree = "<group>"; };
@@ -196,7 +200,9 @@
 				40D8F63425EA8DA3006F0757 /* TMBarView+Ext.swift */,
 				40730D3F25E7008500E945E1 /* UIViewController+Ext.swift */,
 				40D8F5D825EA4F49006F0757 /* UIView+Ext.swift */,
+				40C20B6825EAC997006DBD51 /* Collection+Ext.swift */,
 				40730D4425E700B100E945E1 /* UIImageView+Ext.swift */,
+				40C20B6D25EAD55B006DBD51 /* GCD.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -666,6 +672,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40C20B6E25EAD55B006DBD51 /* GCD.swift in Sources */,
 				40730D3825E7006000E945E1 /* Typealiases.swift in Sources */,
 				40D8F60125EA862A006F0757 /* Entity.swift in Sources */,
 				40E6DD1D25DFC67300F5C0B6 /* RootViewController.swift in Sources */,
@@ -675,6 +682,7 @@
 				40D8F5D425EA4F1B006F0757 /* SeparatorView.swift in Sources */,
 				AB97EA5F25E50F9800F4C323 /* WrongStubsCell.swift in Sources */,
 				AB63AA6525E50B0D009AB761 /* EmptyStubsCell.swift in Sources */,
+				40C20B6925EAC997006DBD51 /* Collection+Ext.swift in Sources */,
 				40C20B6425EABE5D006DBD51 /* HapticHelper.swift in Sources */,
 				40730D2425E6F64A00E945E1 /* TopBarButton.swift in Sources */,
 				40D8F67925EAA963006F0757 /* RootEntity.swift in Sources */,

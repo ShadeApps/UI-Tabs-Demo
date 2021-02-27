@@ -7,6 +7,4 @@
 
 import UIKit
 
-final class EmptyStubsCell: UITableViewCell {
-
-}
+final class EmptyStubsCell: UITableViewCell { }

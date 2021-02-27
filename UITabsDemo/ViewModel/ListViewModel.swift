@@ -11,8 +11,8 @@ enum LoadState {
     case isLoading
     case success
     case empty
-    case noConnection
     case error
+    case noConnection
 }
 
 protocol ListViewModelDelegate: AnyObject {
@@ -41,37 +41,40 @@ final class ListViewModel {
         internalState = .isLoading
         delegate?.reloadTableView(internalState)
 
-        dataService.request(path: Constants.path) {  [weak self] (result: LoadResult) in
-            guard let self = self else { return }
-            switch result {
-            case .success(let value):
-                let items = value.items
-                print("Items are \(items)")
+        doAfter(Constants.loadDelay) {
+            self.dataService.request(path: Constants.path) {  [weak self] result in
+                guard let self = self else { return }
+                switch result {
+                case .success(let value):
+                    let items = value.items
+                    print("Items are \(items)")
 
-                self.internalState = items.isEmpty ? .empty : .success
-                self.delegate?.reloadTableView(self.internalState)
-            case .failure(let error):
-                print("Error is \(error)")
-                self.internalState = .error
-                self.delegate?.showError(self.internalState)
+                    self.internalState = items.isEmpty ? .empty : .success
+                    self.delegate?.reloadTableView(self.internalState)
+                case .failure(let error):
+                    if error == .connection {
+                        self.internalState = .noConnection
+                    } else {
+                        self.internalState = .error
+                    }
+                    self.delegate?.showError(self.internalState)
+                }
             }
         }
     }
 
     var numberOfSections: Int {
-        switch internalState {
-        case .success:
+        if case .success = internalState {
             return sections.count
-        default:
+        } else {
             return 1
         }
     }
 
     func numberOfItems(inSection section: Int) -> Int {
-        switch internalState {
-        case .success:
-            return sectionAtIndex(section).events.count
-        default:
+        if case .success = internalState {
+            return sectionAtIndex(section).events.count + Constants.extraCount
+        } else {
             return 5
         }
     }
@@ -84,8 +87,8 @@ final class ListViewModel {
         items[index]
     }
 
-    func itemAtIndex(_ indexPath: IndexPath) -> Event {
-        items[indexPath.section].events[indexPath.row]
+    func itemAtIndex(section: Int, index: Int) -> Event? {
+        items[safe: section]?.events[safe: index]
     }
 }
 
@@ -93,6 +96,8 @@ private extension ListViewModel {
 
     enum Constants {
         static let path = "602ce0c15605851b065e96e1"
+        static let extraCount = 2
+        static let loadDelay = 2.0
     }
 
 }
