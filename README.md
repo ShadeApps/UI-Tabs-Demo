@@ -1,11 +1,11 @@
 # UI Tabs Demo
 
-iOS app for an interview project written entirely in Swift 5.3.2 with very custom UI featuring Dark Mod.
+iOS app for an interview project written entirely in Swift 5.3.2 with custom UI featuring Dark Mode support.
 
 ## Requirements
 
-**Xcode version 12.3 (12C33)** with **iOS 14.3 SDK** required.
-Supported iOS Versions - iOS 11 and up
+**Xcode version 12.4 (12D4e)** with **iOS 14.4 SDK** is recommended.
+Supported iOS versions - iOS 11 and up.
 **CocoaPods** is also a must.
 
 ## Installation
@@ -44,7 +44,7 @@ The app is currently able to load data, group it by date and show it in a Table 
 
 ## Trivia
 
-Project is built with Storyboards and Autolayout, heavily relying on R.swift library for strngly typed-constants.
+Project is built with Storyboards and AutoLayout, heavily relying on R.swift library for strongly typed-constants.
 It also relies heavily on the Tabman library for the main screen and switching between tabs.
 
 ## Contributing
