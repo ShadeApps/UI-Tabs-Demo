@@ -32,9 +32,6 @@ final class SeparatorView: UIView {
         if layoutConstraint.constant != separatorHeight {
             layoutConstraint.constant = separatorHeight
         }
-
-        backgroundColor = .lightGray
-
     }
 
 }

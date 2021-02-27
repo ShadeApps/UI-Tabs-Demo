@@ -23,6 +23,7 @@ final class UpcomingVC: UIViewController, TabbedController {
 
         setupTableView()
 
+        viewModel.useDelay = true
         viewModel.delegate = self
         viewModel.loadData()
     }

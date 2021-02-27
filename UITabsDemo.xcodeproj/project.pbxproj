@@ -20,6 +20,7 @@
 		40C20B7325EAD7B7006DBD51 /* NetworkClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C20B7225EAD7B7006DBD51 /* NetworkClientProtocol.swift */; };
 		40C20B7825EAD7E9006DBD51 /* LoadDataServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C20B7725EAD7E9006DBD51 /* LoadDataServiceProtocol.swift */; };
 		40C20B8025EAD80B006DBD51 /* DateFormatterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C20B7F25EAD80B006DBD51 /* DateFormatterProtocol.swift */; };
+		40C20B9C25EAF64D006DBD51 /* MockEntityProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C20B9B25EAF64D006DBD51 /* MockEntityProvider.swift */; };
 		40D8F5D425EA4F1B006F0757 /* SeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D8F5D325EA4F1B006F0757 /* SeparatorView.swift */; };
 		40D8F5D925EA4F49006F0757 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D8F5D825EA4F49006F0757 /* UIView+Ext.swift */; };
 		40D8F5DE25EA4F71006F0757 /* Optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D8F5DD25EA4F71006F0757 /* Optional.swift */; };
@@ -95,6 +96,7 @@
 		40C20B7225EAD7B7006DBD51 /* NetworkClientProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClientProtocol.swift; sourceTree = "<group>"; };
 		40C20B7725EAD7E9006DBD51 /* LoadDataServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadDataServiceProtocol.swift; sourceTree = "<group>"; };
 		40C20B7F25EAD80B006DBD51 /* DateFormatterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterProtocol.swift; sourceTree = "<group>"; };
+		40C20B9B25EAF64D006DBD51 /* MockEntityProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockEntityProvider.swift; sourceTree = "<group>"; };
 		40D8F5D325EA4F1B006F0757 /* SeparatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorView.swift; sourceTree = "<group>"; };
 		40D8F5D825EA4F49006F0757 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		40D8F5DD25EA4F71006F0757 /* Optional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Optional.swift; sourceTree = "<group>"; };
@@ -266,6 +268,7 @@
 				40D8F61425EA877F006F0757 /* LoadDataServiceMock.swift */,
 				40D8F61C25EA87A5006F0757 /* DateFormatterHelperMock.swift */,
 				40D8F62125EA87C9006F0757 /* ListViewModelDelegateMock.swift */,
+				40C20B9B25EAF64D006DBD51 /* MockEntityProvider.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -726,6 +729,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40C20B9C25EAF64D006DBD51 /* MockEntityProvider.swift in Sources */,
 				40E6DD3025DFC67500F5C0B6 /* UITabsDemoTests.swift in Sources */,
 				40D8F61D25EA87A5006F0757 /* DateFormatterHelperMock.swift in Sources */,
 				40D8F62225EA87C9006F0757 /* ListViewModelDelegateMock.swift in Sources */,
@@ -898,8 +902,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 26X9MMPTBH;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = UITabsDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -908,6 +912,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sergey.UITabsDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -919,8 +924,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 26X9MMPTBH;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = UITabsDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -929,6 +934,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sergey.UITabsDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

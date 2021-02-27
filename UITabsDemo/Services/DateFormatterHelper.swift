@@ -27,7 +27,24 @@ final class DateFormatterHelper: DateFormatterProtocol {
 
     func displayRange(fromDates: (date1: Date, date2: Date)) -> String {
         formatter.dateFormat = rangeFormat
-        return formatter.string(from: fromDates.date1) + " — " + formatter.string(from: fromDates.date2)
+
+        let secondComponent = "— " + formatter.string(from: fromDates.date2)
+        var value = formatter.string(from: fromDates.date1) + " " + secondComponent
+
+        // TO DO: think of a better way to do it
+        let pmComponents = value.components(separatedBy: "PM")
+
+        if pmComponents.count > 2 {
+            value = pmComponents.first! + secondComponent
+        }
+
+        let amComponents = value.components(separatedBy: "AM")
+
+        if amComponents.count > 2 {
+            value = amComponents.first! + secondComponent
+        }
+
+        return value
     }
 
     func monthTitle(_ date: Date) -> String {

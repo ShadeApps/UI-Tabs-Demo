@@ -23,5 +23,6 @@ final class MainCell: UITableViewCell {
         timeLabel.text = event.timeRange
         districtLabel.text = event.venue
         placeLabel.text = event.location
+        placeImage.loadImage(url: event.imageUrl)
     }
 }
